@@ -6,23 +6,29 @@ import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Terminal, Database, Co
 const MenuItem = ({ title, href, subtitle }) => (
   <motion.a 
     href={href}
-    whileHover={{ x: 20, opacity: 1 }}
-    className="group flex items-baseline gap-4 opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer py-1"
+    whileHover={{ x: 15, opacity: 1 }} // Geser sedikit lebih jauh biar kerasa interaksinya
+    className="group flex items-center gap-4 opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer py-2" // py-2 supaya ada napas antar menu
   >
-    <h2 className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tighter group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-neutral-400">
-      {title}
-    </h2>
-    <span className="hidden md:block text-xs font-mono text-neutral-400 group-hover:text-white uppercase tracking-widest">
-      {subtitle}
-    </span>
+    {/* Dot Accent (Ukuran Sedang) */}
+    <span className="hidden group-hover:block w-2 h-2 bg-blue-500 rounded-full"></span>
+    
+    <div>
+      {/* UKURAN FONT DIPERBESAR: text-3xl (HP) & md:text-5xl (Laptop) */}
+      <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tighter group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-neutral-400 transition-all">
+        {title}
+      </h2>
+      <span className="text-[10px] md:text-xs font-mono text-neutral-500 group-hover:text-neutral-300 uppercase tracking-widest block mt-1">
+        {subtitle}
+      </span>
+    </div>
   </motion.a>
 );
 
 // --- KOMPONEN SECTION (Reusable) ---
 const Section = ({ id, title, children, className = "" }) => (
   <section id={id} className={`min-h-screen w-full snap-center py-20 px-6 md:px-20 border-t border-neutral-900 flex flex-col justify-center ${className}`}>
-    <div className="max-w-6xl mx-auto">
-      <div className="flex items-center gap-4 mb-16">
+    <div className="max-w-6xl mx-auto w-full">
+      <div className="flex items-center gap-4 mb-10">
         <span className="h-px w-12 bg-neutral-700"></span>
         <h3 className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-500">{title}</h3>
       </div>
@@ -35,20 +41,14 @@ function App() {
   return (
     <div className="bg-neutral-950 text-neutral-200 font-sans selection:bg-white selection:text-black h-screen w-full overflow-y-scroll snap-y snap-proximity scroll-smooth no-scrollbar">
       
-      {/* === 1. HERO SECTION (VIDEO BACKGROUND + MENU LIST) === */}
+      {/* === 1. HERO SECTION === */}
       <section className="relative min-h-screen w-full snap-center overflow-hidden flex flex-col justify-center px-6 md:px-20 shrink-0">
         
-        {/* VIDEO BACKGROUND CONTAINER */}
+        {/* VIDEO BACKGROUND */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/60 z-10"></div> {/* Overlay Gelap supaya teks terbaca */}
-          
-          {/* GANTI 'src' DENGAN FILE VIDEOMU NANTI */}
-          {/* Contoh: src="/videos/coding-timelapse.mp4" */}
+          <div className="absolute inset-0 bg-black/60 z-10"></div>
           <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
+            autoPlay loop muted playsInline
             className="w-full h-full object-cover opacity-80"
           >
             <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-monitor-close-up-1728-large.mp4" type="video/mp4" />
@@ -56,34 +56,27 @@ function App() {
         </div>
 
         {/* CONTENT HERO */}
-        <div className="relative z-20 max-w-6xl w-full mx-auto grid md:grid-cols-2 gap-12 items-end">
+        <div className="relative z-20 max-w-6xl w-full mx-auto h-full flex items-center">
           
-          {/* Kolom Kiri: Judul Besar */}
-          <div className="mb-8 md:mb-0">
-            <h1 className="text-xl md:text-2xl font-mono text-neutral-400 mb-4">
-              Hello, I'm <span className="text-white font-bold">Djali Suandre</span>.
-            </h1>
-            <p className="max-w-md text-neutral-300 leading-relaxed">
-              Fullstack Web Developer & Information Systems Graduate. 
-              Crafting digital experiences with robust backends and clean frontends.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <a href="https://github.com/suandre35" target="_blank" className="p-3 bg-neutral-800/50 backdrop-blur rounded-full hover:bg-white hover:text-black transition-colors">
-                <Github size={20} />
-              </a>
-              <a href="#" className="p-3 bg-neutral-800/50 backdrop-blur rounded-full hover:bg-blue-600 hover:text-white transition-colors">
-                <Linkedin size={20} />
-              </a>
+          <div className="w-full md:w-1/2 flex flex-col items-start space-y-8"> 
+            
+            {/* Intro Kecil */}
+            <div className="mb-2">
+              <h1 className="text-sm font-mono text-blue-400 mb-1">Hi, I'm Djali Suandre.</h1>
+              <p className="text-xs text-neutral-400 max-w-[250px]">
+                Fullstack Web Developer & IS Graduate. Welcome to my portfolio.
+              </p>
             </div>
-          </div>
 
-          {/* Kolom Kanan: MENU LIST (Gaya A24) */}
-          <div className="flex flex-col items-start md:items-end space-y-2">
-            <MenuItem title="About" href="#about" subtitle="Who I Am" />
-            <MenuItem title="Skills" href="#skills" subtitle="Tech Stack" />
-            <MenuItem title="Blog" href="#blog" subtitle="Thoughts" />
-            <MenuItem title="Projects" href="#projects" subtitle="Selected Work" />
-            <MenuItem title="Contact" href="#contact" subtitle="Get in Touch" />
+            {/* Menu List */}
+            <div className="flex flex-col items-start space-y-1 border-l border-white/10 pl-8">
+              <MenuItem title="About" href="#about" subtitle="01 — Identity" />
+              <MenuItem title="Skills" href="#skills" subtitle="02 — Arsenal" />
+              <MenuItem title="Blog" href="#blog" subtitle="03 — Thoughts" />
+              <MenuItem title="Projects" href="#projects" subtitle="04 — Works" />
+              <MenuItem title="Contact" href="#contact" subtitle="05 — Connect" />
+            </div>
+
           </div>
         </div>
 
@@ -91,33 +84,105 @@ function App() {
         <motion.div 
           animate={{ y: [0, 10, 0] }} 
           transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-neutral-500"
+          className="absolute bottom-10 left-10 z-20 text-neutral-500 flex items-center gap-2 text-xs font-mono"
         >
-          <ArrowDown size={24} />
+          <ArrowDown size={14} />
+          <span>SCROLL TO EXPLORE</span>
         </motion.div>
       </section>
 
-
       {/* === 2. ABOUT SECTION === */}
-      <Section id="about" title="01 — About Me" >
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="text-2xl md:text-4xl font-light leading-tight">
-            <span className="text-neutral-500">I bridge the gap between</span> <br/>
-            <span className="text-white">complex data systems</span> <span className="text-neutral-500">and</span> <br/>
-            <span className="text-white">intuitive user interfaces.</span>
-          </div>
-          <div className="space-y-6 text-neutral-400 leading-relaxed">
-            <p>
-              Based in Palembang, Indonesia. I recently graduated with a degree in Information Systems. 
-              My journey started with graphic design (MDPTV), which gave me an eye for detail, before deep-diving into the world of software engineering.
-            </p>
-            <p>
-              I don't just write code; I build systems. From optimizing Laravel databases to configuring Arch Linux environments, I love understanding how things work under the hood.
-            </p>
+      <Section id="about" title="01 — About Me">
+        {/* UBAH GRID: Kolom gambar lebih kecil (max 40%), Teks lebih luas */}
+        <div className="grid md:grid-cols-[1fr_1.5fr] gap-8 md:gap-12 items-center h-full">
+          
+          {/* BAGIAN KIRI: FOTO PROFIL (Dikecilkan) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center md:justify-end" // Posisikan gambar agak ke kanan mendekati teks
+          >
+            <div className="relative group w-full max-w-[280px]"> {/* KUNCI: max-w-[280px] membatasi lebar gambar */}
+              
+              {/* Frame Dekorasi */}
+              <div className="absolute -inset-3 border-2 border-neutral-800 rounded-xl group-hover:border-white/50 transition-colors duration-500"></div>
+              
+              {/* Container Foto */}
+              <div className="relative aspect-[3/4] bg-neutral-900 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+                <img 
+                  src="src/assets/img/profile.JPG" 
+                  alt="Djali Suandre" 
+                  className="w-full h-full object-cover"
+                />
+                
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent"></div>
+                
+                {/* Badge "Open for Work" */}
+                <div className="absolute bottom-3 left-3 bg-white/10 backdrop-blur-md border border-white/20 px-2 py-1 rounded-full flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                  <span className="text-[10px] font-mono text-white">Open for Work</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+
+          {/* BAGIAN KANAN: STORYTELLING */}
+          <div className="space-y-6 relative text-left"> {/* Spasi antar elemen diperkecil (space-y-6) */}
+            
+            {/* Headline Besar */}
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-2xl md:text-4xl font-bold leading-tight" // Font size sedikit disesuaikan
+            >
+              From <span className="text-neutral-500 line-through decoration-red-500/50">Nothing</span> <br/>
+              to <span className="text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Everything.</span>
+            </motion.h3>
+
+            {/* Paragraf Cerita (Font size diperkecil sedikit agar muat) */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="space-y-3 text-neutral-400 leading-relaxed text-sm font-light"
+            >
+              <p>
+                <strong className="text-white">Halo, I'm Djali Suandre.</strong> A fresh graduate in Information Systems based in Palembang.
+              </p>
+              <p>
+                My journey wasn't linear. I started as a <span className="text-white border-b border-neutral-700 pb-0.5">Graphic Designer</span> (leading the team at MDPTV), obsessing over typography and layout. This background gave me a unique advantage: I don't just write code that <i>works</i>; I write code that <i>feels good</i> to use.
+              </p>
+              <p>
+                Recently, I completed my bachelor’s thesis building a complex <strong>KPI Management System</strong> using Laravel. Now, I spend my nights configuring Arch Linux, optimizing databases, and exploring the depths of Fullstack Development.
+              </p>
+            </motion.div>
+
+            {/* Data Singkat (Compact Grid) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="grid grid-cols-2 gap-4 pt-4 border-t border-neutral-800"
+            >
+              <div>
+                <h4 className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-1">Education</h4>
+                <p className="text-white text-sm font-medium">S.Kom, Information Systems</p>
+                <p className="text-neutral-600 text-xs">Universitas Multi Data Palembang</p>
+              </div>
+              <div>
+                <h4 className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mb-1">Tech Obsession</h4>
+                <p className="text-white text-sm font-medium">System Architecture</p>
+                <p className="text-neutral-600 text-xs">Arch Linux (Hyprland), Docker</p>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </Section>
-
 
       {/* === 3. SKILLS SECTION === */}
       <Section id="skills" title="02 — Technical Arsenal">
@@ -231,9 +296,9 @@ function App() {
           <div className="mt-20 py-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-neutral-600">
             <p>© 2026 DJALI SUANDRE. PALEMBANG, ID.</p>
             <div className="flex gap-4 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white">GITHUB</a>
-              <a href="#" className="hover:text-white">LINKEDIN</a>
-              <a href="#" className="hover:text-white">INSTAGRAM</a>
+              <a href="https://github.com/suandre35" className="hover:text-white">GITHUB</a>
+              <a href="https://www.linkedin.com/in/djali-suandre-441415304/" className="hover:text-white">LINKEDIN</a>
+              <a href="https://www.instagram.com/djali_suandre/" className="hover:text-white">INSTAGRAM</a>
             </div>
           </div>
         </div>
