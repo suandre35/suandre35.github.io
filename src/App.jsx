@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Terminal, Database, Code } from 'lucide-react';
+import heroPic from './assets/img/hero.png'
 import profilePic from './assets/img/profile.JPG';
 
 // --- KOMPONEN ITEM MENU (Untuk Hero Section) ---
@@ -61,7 +62,7 @@ function App() {
           <div className="absolute inset-0 bg-black/60 z-10"></div> {/* Overlay Gelap Tetap Ada */}
           
           <img 
-            src="./src/assets/img/hero.png"
+            src={heroPic}
             alt="Hero Background"
             className="w-full h-full object-cover opacity-80"
           />
