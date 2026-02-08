@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, ArrowUpRight, Github, Linkedin, Mail, Terminal, Database, Code } from 'lucide-react';
+import profilePic from './assets/img/profile.JPG';
 
 // --- KOMPONEN ITEM MENU (Untuk Hero Section) ---
 const MenuItem = ({ title, href, subtitle }) => (
@@ -111,7 +112,7 @@ function App() {
               {/* Container Foto */}
               <div className="relative aspect-[3/4] bg-neutral-900 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                 <img 
-                  src="src/assets/img/profile.JPG" 
+                  src={profilePic} 
                   alt="Djali Suandre" 
                   className="w-full h-full object-cover"
                 />
