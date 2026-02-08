@@ -225,7 +225,7 @@ function App() {
             href="mailto:emailmu@gmail.com" 
             className="inline-flex items-center gap-3 text-xl md:text-2xl text-neutral-400 hover:text-white transition-colors border-b border-neutral-800 hover:border-white pb-2"
           >
-            <Mail /> emailmu@gmail.com
+            <Mail /> djalisuandre123654@gmail.com
           </a>
           
           <div className="mt-20 py-8 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-neutral-600">
