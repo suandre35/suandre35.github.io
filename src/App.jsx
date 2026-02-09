@@ -300,7 +300,7 @@ function App() {
             Let's work together.
           </h2>
           <a 
-            href="mailto:emailmu@gmail.com" 
+            href="mailto:djalisuandre123654@gmail.com" 
             className="inline-flex items-center gap-3 text-xl md:text-2xl text-neutral-400 hover:text-white transition-colors border-b border-neutral-800 hover:border-white pb-2"
           >
             <Mail /> djalisuandre123654@gmail.com
