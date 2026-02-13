@@ -58,15 +58,13 @@ function App() {
         </div> */}
 
         {/* PHOTO BACKGROUND */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/60 z-10"></div> {/* Overlay Gelap Tetap Ada */}
-          
+        {/* <div className="absolute inset-0 z-0">          
           <img 
             src={heroPic}
             alt="Hero Background"
             className="w-full h-full object-cover opacity-80"
-          />
-        </div>
+          /> */}
+        {/* </div> */}
 
         {/* CONTENT HERO */}
         <div className="relative z-20 max-w-6xl w-full mx-auto h-full flex items-center">
@@ -74,12 +72,12 @@ function App() {
           <div className="w-full md:w-1/2 flex flex-col items-start space-y-8"> 
             
             {/* Intro Kecil */}
-            <div className="mb-2">
+            {/* <div className="mb-2">
               <h1 className="text-sm font-mono text-blue-400 mb-1">Hi, I'm Djali Suandre.</h1>
               <p className="text-xs text-neutral-400 max-w-[250px]">
                 Fullstack Web Developer & IS Graduate. Welcome to my portfolio.
               </p>
-            </div>
+            </div> */}
 
             {/* Menu List */}
             <div className="flex flex-col items-start space-y-1 border-l border-white/10 pl-8">
@@ -154,7 +152,7 @@ function App() {
               className="text-2xl md:text-4xl font-bold leading-tight" // Font size sedikit disesuaikan
             >
               From <span className="text-neutral-500 line-through decoration-red-500/50">Nothing</span> <br/>
-              to <span className="text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Everything.</span>
+              to <span className="text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Everything</span>
             </motion.h3>
 
             {/* Paragraf Cerita (Font size diperkecil sedikit agar muat) */}
@@ -236,6 +234,7 @@ function App() {
               <li>Git & GitHub</li>
               <li>VS Code / Neovim</li>
               <li>Postman</li>
+              <li>Docker</li>
             </ul>
           </div>
         </div>
@@ -263,42 +262,103 @@ function App() {
       </Section>
 
       {/* === 5. EXPERIENCES SECTION === */}
-      <Section id="experiences" title="04 — Selected Works">
-        <div className="grid md:grid-cols-3 gap-8">
+      <Section id="experiences" title="04 — Experience">
+        <div className="space-y-0">
           
-          {/* Project 1 */}
-          <div className="group relative aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800">
-            {/* Image Placeholder */}
-            <div className="absolute inset-0 bg-neutral-800 group-hover:scale-105 transition-transform duration-700">
-              {/* <img src="/kpi-project.png" className="w-full h-full object-cover" /> */}
-              <div className="w-full h-full flex items-center justify-center text-neutral-700 font-mono">Multimedia Bhakti Luhur Temple</div>
+          <div className="group flex flex-col md:flex-row gap-4 md:gap-10 py-8 border-b border-neutral-800 hover:bg-neutral-900/30 transition-colors px-4 -mx-4 rounded-lg">
+            <div className="md:w-1/4 shrink-0">
+              <span className="text-neutral-500 font-mono text-sm block mb-1">2025 - 2026</span>
+              <span className="text-xs text-blue-400 uppercase tracking-wider font-bold">Bachelor Thesis</span>
             </div>
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
-              <h4 className="text-2xl font-bold text-white">Multimedia Team</h4>
-              <p className="text-neutral-300 mt-2">Visual • Audio • OBS Studio</p>
-              <a href="#" className="mt-4 px-4 py-2 border border-white text-white text-sm hover:bg-white hover:text-black transition-colors">View Case Study</a>
-            </div>
-          </div>
-
-          {/* Project 2 */}
-          <div className="group relative aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800">
-            <div className="absolute inset-0 bg-neutral-800 group-hover:scale-105 transition-transform duration-700">
-              <div className="w-full h-full bg-purple-900/20 flex items-center justify-center text-neutral-700 font-mono">Image: MDPTV</div>
-            </div>
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
-              <h4 className="text-2xl font-bold text-white">Programming UMDP</h4>
-              <p className="text-neutral-300 mt-2">Game Designer • Web Developer</p>
+            <div className="md:w-3/4">
+              <h4 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                PT Multi Data Palembang
+              </h4>
+              <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                Developed a comprehensive <strong>Key Performance Indicator (KPI) System</strong> to digitize and optimize the employee evaluation process. The system handles complex scoring logic, role-based access control, and generates performance reports for HR management.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Laravel 10</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">MySQL Complex Query</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">System Analysis</span>
+              </div>
             </div>
           </div>
 
-          {/* Project 3 */}
-          <div className="group relative aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800">
-            <div className="absolute inset-0 bg-neutral-800 group-hover:scale-105 transition-transform duration-700">
-              <div className="w-full h-full bg-purple-900/20 flex items-center justify-center text-neutral-700 font-mono">Image: MDPTV</div>
+          <div className="group flex flex-col md:flex-row gap-4 md:gap-10 py-8 border-b border-neutral-800 hover:bg-neutral-900/30 transition-colors px-4 -mx-4 rounded-lg">
+            <div className="md:w-1/4 shrink-0">
+              <span className="text-neutral-500 font-mono text-sm block mb-1">2024</span>
+              <span className="text-xs text-green-400 uppercase tracking-wider font-bold">Internship</span>
             </div>
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
-              <h4 className="text-2xl font-bold text-white">MDPTV</h4>
-              <p className="text-neutral-300 mt-2">Graphic Design • Adobe Photoshop • Affinity by Canva</p>
+            <div className="md:w-3/4">
+              <h4 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                CV Vica Jaya
+              </h4>
+              <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                Built a custom <strong>Inventory & Point of Sale (POS) Application</strong> during practical work. The application streamlined stock tracking and cashier transactions, replacing manual recording methods and reducing data entry errors.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Laravel Fullstack</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Inventory Logic</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">POS System</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="group flex flex-col md:flex-row gap-4 md:gap-10 py-8 border-b border-neutral-800 hover:bg-neutral-900/30 transition-colors px-4 -mx-4 rounded-lg">
+            <div className="md:w-1/4 shrink-0">
+              <span className="text-neutral-500 font-mono text-sm block mb-1">2023 - Present</span>
+              <span className="text-xs text-neutral-600 uppercase tracking-wider">Freelance</span>
+            </div>
+            <div className="md:w-3/4">
+              <h4 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                Multimedia Bhakti Luhur Temple
+              </h4>
+              <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                Responsible for managing visual and audio systems for live events. Specialized in OBS Studio configuration for live streaming and recording, ensuring seamless broadcast quality.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">OBS Studio</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Live Streaming</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="group flex flex-col md:flex-row gap-4 md:gap-10 py-8 border-b border-neutral-800 hover:bg-neutral-900/30 transition-colors px-4 -mx-4 rounded-lg">
+            <div className="md:w-1/4 shrink-0">
+              <span className="text-neutral-500 font-mono text-sm block mb-1">2022 - 2024</span>
+              <span className="text-xs text-neutral-600 uppercase tracking-wider">Student Org</span>
+            </div>
+            <div className="md:w-3/4">
+              <h4 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                Programming UMDP
+              </h4>
+              <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                Active member focusing on game design and web development. Collaborated with peers to build interactive web projects and prototype game concepts.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Web Dev</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Game Design</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="group flex flex-col md:flex-row gap-4 md:gap-10 py-8 border-b border-neutral-800 hover:bg-neutral-900/30 transition-colors px-4 -mx-4 rounded-lg">
+            <div className="md:w-1/4 shrink-0">
+              <span className="text-neutral-500 font-mono text-sm block mb-1">2021 - 2023</span>
+              <span className="text-xs text-neutral-600 uppercase tracking-wider">Head of Division</span>
+            </div>
+            <div className="md:w-3/4">
+              <h4 className="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                MDPTV (Graphic Design Div)
+              </h4>
+              <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+                Led the Graphic Design division, overseeing the creation of visual assets for university media. Managed team workflows and produced high-quality branding materials.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Adobe Suite</span>
+                <span className="px-2 py-1 bg-neutral-800 text-neutral-300 text-[10px] font-mono rounded">Leadership</span>
+              </div>
             </div>
           </div>
 
@@ -339,7 +399,7 @@ function App() {
 
 
       {/* === 7. CONTACT SECTION === */}
-      <Section id="contact" title="05 — Get In Touch" className="pb-0 border-b-0">
+      <Section id="contact" title="06 — Get In Touch" className="pb-0 border-b-0">
         <div className="py-20 text-center">
           <h2 className="text-4xl md:text-7xl font-bold text-white mb-8 tracking-tighter">
             Let's work together.
