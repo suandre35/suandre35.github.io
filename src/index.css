@@ -4,7 +4,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@import "tailwindcss"; /* Atau @tailwind base dst kalau pakai v3 */
+@import "tailwindcss";
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
